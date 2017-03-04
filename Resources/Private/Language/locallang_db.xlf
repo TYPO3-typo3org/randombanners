@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" product-name="randombanners">
+		<header/>
+		<body>
+			<trans-unit id="plugin.title" xml:space="preserve">
+				<source>List banners</source>
+			</trans-unit>
+			<trans-unit id="tx_randombanners_domain_model_banner" xml:space="preserve">
+				<source>Banner</source>
+			</trans-unit>
+			<trans-unit id="tx_randombanners_domain_model_banner.name" xml:space="preserve">
+				<source>Banner name:</source>
+			</trans-unit>
+			<trans-unit id="tx_randombanners_domain_model_banner.link" xml:space="preserve">
+				<source>Banner link:</source>
+			</trans-unit>
+			<trans-unit id="tx_randombanners_domain_model_banner.logo" xml:space="preserve">
+				<source>Banner image:</source>
+			</trans-unit>
+			<trans-unit id="tx_randombanners_domain_model_banner.email" xml:space="preserve">
+				<source>Email for sending status mails:</source>
+			</trans-unit>
+			<trans-unit id="tx_randombanners_domain_model_banner.clicked_this_month" xml:space="preserve">
+				<source>Banner clicked this month:</source>
+			</trans-unit>
+			<trans-unit id="tx_randombanners_domain_model_banner.clicked_last_month" xml:space="preserve">
+				<source>Banner clicked last month:</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

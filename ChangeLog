@@ -1,0 +1,5 @@
+2017-03-02  Sven Burkert  <bedienung@sbtheke.de>
+    * Compatibility to TYPO3 version 8
+    * Extbase scheduler job
+    * Email template with Fluid
+    * AJAX with eId

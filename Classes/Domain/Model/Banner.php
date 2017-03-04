@@ -1,32 +1,21 @@
 <?php
-/***************************************************************
-*  Copyright notice
-*
-*  (c) 2011 Thomas Loeffler <loeffler@spooner-web.de>
-*  
-*  All rights reserved
-*
-*  This script is part of the TYPO3 project. The TYPO3 project is
-*  free software; you can redistribute it and/or modify
-*  it under the terms of the GNU General Public License as published by
-*  the Free Software Foundation; either version 3 of the License, or
-*  (at your option) any later version.
-*
-*  The GNU General Public License can be found at
-*  http://www.gnu.org/copyleft/gpl.html.
-*
-*  This script is distributed in the hope that it will be useful,
-*  but WITHOUT ANY WARRANTY; without even the implied warranty of
-*  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-*  GNU General Public License for more details.
-*
-*  This copyright notice MUST APPEAR in all copies of the script!
-***************************************************************/
+namespace T3o\Randombanners\Domain\Model;
 
-/**
- * Statistics for clicking and displaying banners
+/*
+ * This file is part of the TYPO3 CMS project.
+ *
+ * It is free software; you can redistribute it and/or modify it under
+ * the terms of the GNU General Public License, either version 2
+ * of the License, or any later version.
+ *
+ * For the full copyright and license information, please read the
+ * LICENSE.txt file that was distributed with this source code.
+ *
+ * The TYPO3 project - inspiring people to share!
  */
-class Tx_Randombanners_Domain_Model_Banner extends Tx_Extbase_DomainObject_AbstractEntity {
+
+class Banner extends \TYPO3\CMS\Extbase\DomainObject\AbstractEntity
+{
 
 	/**
 	 * name
@@ -52,16 +41,9 @@ class Tx_Randombanners_Domain_Model_Banner extends Tx_Extbase_DomainObject_Abstr
 	/**
 	 * Logo
 	 *
-	 * @var \TYPO3\CMS\Extbase\Domain\Model\FileReference
+     * @var \TYPO3\CMS\Extbase\Persistence\ObjectStorage<\TYPO3\CMS\Extbase\Domain\Model\FileReference>
 	 */
 	protected $logo;
-
-	/**
-	 * displayedThisMonth
-	 *
-	 * @var integer
-	 */
-	protected $displayedThisMonth;
 
 	/**
 	 * clickedThisMonth
@@ -69,13 +51,6 @@ class Tx_Randombanners_Domain_Model_Banner extends Tx_Extbase_DomainObject_Abstr
 	 * @var integer
 	 */
 	protected $clickedThisMonth;
-
-	/**
-	 * displayedLastMonth
-	 *
-	 * @var integer
-	 */
-	protected $displayedLastMonth;
 
 	/**
 	 * clickedLastMonth
@@ -115,21 +90,17 @@ class Tx_Randombanners_Domain_Model_Banner extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
-	 * @param integer $logo
-	 * @return void
+	 * @param \TYPO3\CMS\Extbase\Persistence\ObjectStorage $logo
+     * @return void
 	 */
-
-	/**
-	 * Set Logo
-	 * @param \TYPO3\CMS\Extbase\Domain\Model\FileReference $logo
-	 */
-	public function setLogo($logo) {
+	public function setLogo(\TYPO3\CMS\Extbase\Persistence\ObjectStorage $logo) {
 		$this->logo = $logo;
 	}
 
 	/**
 	 * Get logo
-	 * @return \TYPO3\CMS\Extbase\Domain\Model\FileReference $logo
+     *
+	 * @return \TYPO3\CMS\Extbase\Persistence\ObjectStorage
 	 */
 	public function getLogo() {
 		return $this->logo;
@@ -151,21 +122,6 @@ class Tx_Randombanners_Domain_Model_Banner extends Tx_Extbase_DomainObject_Abstr
 	}
 
 	/**
-	 * @param integer $displayedThisMonth
-	 * @return void
-	 */
-	public function setDisplayedThisMonth($displayedThisMonth) {
-		$this->displayedThisMonth = $displayedThisMonth;
-	}
-
-	/**
-	 * @return integer
-	 */
-	public function getDisplayedThisMonth() {
-		return $this->displayedThisMonth;
-	}
-
-	/**
 	 * @param integer $clickedThisMonth
 	 * @return void
 	 */
@@ -178,21 +134,6 @@ class Tx_Randombanners_Domain_Model_Banner extends Tx_Extbase_DomainObject_Abstr
 	 */
 	public function getClickedThisMonth() {
 		return $this->clickedThisMonth;
-	}
-
-	/**
-	 * @param integer $displayedLastMonth
-	 * @return void
-	 */
-	public function setDisplayedLastMonth($displayedLastMonth) {
-		$this->displayedLastMonth = $displayedLastMonth;
-	}
-
-	/**
-	 * @return integer
-	 */
-	public function getDisplayedLastMonth() {
-		return $this->displayedLastMonth;
 	}
 
 	/**
@@ -211,4 +152,3 @@ class Tx_Randombanners_Domain_Model_Banner extends Tx_Extbase_DomainObject_Abstr
 	}
 
 }
-?>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" product-name="randombanners">
+		<header/>
+		<body>
+			<trans-unit id="plugin.title" xml:space="preserve">
+				<source>List banners</source>
+			</trans-unit>
+			<trans-unit id="task.name" xml:space="preserve">
+				<source>Sending monthly mails</source>
+			</trans-unit>
+			<trans-unit id="task.description" xml:space="preserve">
+				<source>Sending monthly mails to all banner sponsors with the click and displaying rate of the last month</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

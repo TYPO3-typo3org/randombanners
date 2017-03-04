@@ -1,29 +1,19 @@
 <?php
-	if (!defined ('TYPO3_MODE')) {
-		die ('Access denied.');
-	}
+defined('TYPO3_MODE') or die();
 
-	Tx_Extbase_Utility_Extension::configurePlugin(
-		$_EXTKEY,
-		'List',
-		array(
-			'Banner' => 'index, list, show',
+\TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
+    'T3o.' . $_EXTKEY,
+    'Pi1',
+    [
+        'Banner' => 'index',
+    ],
+    // non-cacheable actions
+    [
+    ]
+);
 
-		),
-		array(
-			'Banner' => 'show',
+// Register scheduler job
+$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['extbase']['commandControllers'][] = 'T3o\\Randombanners\\Command\\MonthlyCommandController';
 
-		)
-	);
-
-	// Register extension list update task
-	$GLOBALS['TYPO3_CONF_VARS']['SC_OPTIONS']['scheduler']['tasks']['Tx_Randombanners_Task_SendingMonthlyMailsTask'] = array(
-		'extension'        => $_EXTKEY,
-		'title'            => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.xml:tx_randombanners_task_sendingmonthlymailstask.name',
-		'description'      => 'LLL:EXT:' . $_EXTKEY . '/Resources/Private/Language/locallang.xml:tx_randombanners_task_sendingmonthlymailstask.description',
-		'additionalFields' => '',
-	);
-
-	$TYPO3_CONF_VARS['FE']['eID_include']['randombanners'] = 'EXT:randombanners/Classes/Ajax/RandomBannersAjax.php';
-
-?>
+// AJAX
+$GLOBALS['TYPO3_CONF_VARS']['FE']['eID_include']['randombanners'] = 'EXT:' . $_EXTKEY . '/Classes/Eid/Count.php';

@@ -1,20 +1,11 @@
-<div id="randombanners">
-    <div class="tx-randombanners">
+<f:layout name="Default" />
+
+<f:section name="content">
     <f:for each="{banners}" as="banner">
-        <div class="tx-randombanners-item">
-			<f:if condition="{settings.noFollowTag} == 1">
-				<f:then>
-					<a class="tx-randombanners-link" onclick="clickBanner($(this));" href="<f:uri.external uri='{banner.link}' />" data-itemId="{banner.uid}" rel="nofollow" target="_blank">
-						<f:image src="{banner.logo.uid}" treatIdAsReference="1" alt="{banner.name}" />
-					</a>
-				</f:then>
-				<f:else>
-					<a class="tx-randombanners-link" onclick="clickBanner($(this));" href="<f:uri.external uri='{banner.link}' />" data-itemId="{banner.uid}" target="_blank">
-						<f:image src="{banner.logo.uid}" treatIdAsReference="1" alt="{banner.name}" />
-					</a>
-				</f:else>
-			</f:if>
-        </div>
+        <f:link.external uri="{f:uri.external(uri: banner.link)}" target="_blank" additionalAttributes="{data-uid: banner.uid, rel: settings.linkAttributeRel}">
+            <f:for each="{banner.logo}" as="logo">
+                <f:image image="{logo}" alt="{banner.name}" />
+            </f:for>
+        </f:link.external>
     </f:for>
-    </div>
-</div>
+</f:section>

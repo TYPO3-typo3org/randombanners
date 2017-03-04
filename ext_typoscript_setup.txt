@@ -1,0 +1,16 @@
+module.tx_randombanners {
+    view {
+        templateRootPaths {
+            10 = EXT:randombanners/Resources/Private/Templates/
+        }
+        partialRootPaths {
+            10 = EXT:randombanners/Resources/Private/Partials/
+        }
+        layoutRootPaths {
+            10 = EXT:randombanners/Resources/Private/Layouts/
+        }
+    }
+    settings {
+        developmentEmail = sventb@gmail.com
+    }
+}
