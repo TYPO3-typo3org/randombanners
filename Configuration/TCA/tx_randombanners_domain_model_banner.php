@@ -1,6 +1,13 @@
 <?php
 defined('TYPO3_MODE') or die();
 
+$t3Version = \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(\TYPO3\CMS\Core\Utility\VersionNumberUtility::getNumericTypo3Version());
+if($t3Version >= 8000000) {
+    $llExtLang = 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf';
+} else {
+    $llExtLang = 'LLL:EXT:lang/locallang_general.xlf';
+}
+
 return [
     'ctrl' => [
         'title' => 'LLL:EXT:randombanners/Resources/Private/Language/locallang_db.xlf:tx_randombanners_domain_model_banner',
@@ -35,15 +42,15 @@ return [
     'columns' => [
         'sys_language_uid' => [
             'exclude' => true,
-            'label' => 'LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.language',
+            'label' => $llExtLang . ':LGL.language',
             'config' => [
                 'type' => 'select',
                 'renderType' => 'selectSingle',
                 'foreign_table' => 'sys_language',
                 'foreign_table_where' => 'ORDER BY sys_language.title',
                 'items' => [
-                    ['LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.allLanguages', '-1'],
-                    ['LLL:EXT:lang/Resources/Private/Language/locallang_general.xlf:LGL.default_value', '0']
+                    [$llExtLang . ':LGL.allLanguages', '-1'],
+                    [$llExtLang . ':LGL.default_value', '0']
                 ],
                 'default' => 0,
                 'fieldWizard' => [

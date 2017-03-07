@@ -12,13 +12,6 @@ The clicks on the banners are counted for current and last month (with AJAX and 
 Every month, an email with the click statistics is sent to the sponsor of the banner, if the banner record has an email address.
 
 
------------
-Screenshots
------------
-
-TODO
-
-
 -------------
 Configuration
 -------------

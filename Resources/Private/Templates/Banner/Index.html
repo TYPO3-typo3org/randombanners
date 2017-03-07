@@ -4,7 +4,7 @@
     <f:for each="{banners}" as="banner">
         <f:link.external uri="{f:uri.external(uri: banner.link)}" target="_blank" additionalAttributes="{data-uid: banner.uid, rel: settings.linkAttributeRel}">
             <f:for each="{banner.logo}" as="logo">
-                <f:image image="{logo}" alt="{banner.name}" />
+                <f:image image="{logo}" alt="{banner.name}" width="200" />
             </f:for>
         </f:link.external>
     </f:for>

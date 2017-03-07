@@ -16,12 +16,22 @@ namespace T3o\Randombanners\Eid;
 
 use TYPO3\CMS\Core\Utility\GeneralUtility;
 
-$gp = \TYPO3\CMS\Core\Utility\GeneralUtility::_POST();
+$gp = GeneralUtility::_POST();
 
-/* @var \TYPO3\CMS\Core\Database\Query\QueryBuilder $queryBuilder */
-$queryBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)->getQueryBuilderForTable('tx_randombanners_domain_model_banner');
-$queryBuilder
-    ->update('tx_randombanners_domain_model_banner')
-    ->where($queryBuilder->expr()->eq('uid', (int)$gp['banner']))
-    ->set('clicked_this_month', 'clicked_this_month + 1', FALSE)
-    ->execute();
+$t3Version = \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(\TYPO3\CMS\Core\Utility\VersionNumberUtility::getNumericTypo3Version());
+if($t3Version >= 8000000) {
+    /* @var \TYPO3\CMS\Core\Database\Query\QueryBuilder $queryBuilder */
+    $queryBuilder = GeneralUtility::makeInstance(\TYPO3\CMS\Core\Database\ConnectionPool::class)->getQueryBuilderForTable('tx_randombanners_domain_model_banner');
+    $queryBuilder
+        ->update('tx_randombanners_domain_model_banner')
+        ->where($queryBuilder->expr()->eq('uid', (int)$gp['banner']))
+        ->set('clicked_this_month', 'clicked_this_month + 1', FALSE)
+        ->execute();
+} else {
+    $GLOBALS['TYPO3_DB']->exec_UPDATEquery(
+        'tx_randombanners_domain_model_banner',
+        sprintf('uid = %d', (int)$gp['banner']),
+        ['clicked_this_month' => 'clicked_this_month + 1'],
+        ['clicked_this_month']
+    );
+}
